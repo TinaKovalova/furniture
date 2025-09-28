@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Instrument+Sans:regular,700&display=swap");
 
-$icomoon-font-family: "icomoon" !default;
-$icomoon-font-path: "fonts" !default;
-
 $_icon-cart: unquote('"\\e900"');
 $_icon-cart-add: unquote('"\\e901"');
 $_icon-check: unquote('"\\e902"');
@@ -13,7 +10,7 @@ $_icon-phone: unquote('"\\e905"');
 $_icon-arrow: unquote('"\\ea3c"');
 
 @font-face {
-    font-family: "#{$icomoon-font-family}";
+    font-family: "icomoon";
     src: url("/src/fonts/icomoon.woff2") format("woff2");
     src:
         url("/src/fonts/icomoon.ttf") format("truetype"),
@@ -25,9 +22,6 @@ $_icon-arrow: unquote('"\\ea3c"');
 
 [class^="_icon-"],
 [class*=" _icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: "#{$icomoon-font-family}" !important;
-    speak: never;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -37,6 +31,10 @@ $_icon-arrow: unquote('"\\ea3c"');
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    &::before {
+        font-family: "icomoon" !important;
+        speak: never;
+    }
 }
 
 ._icon-cart {
