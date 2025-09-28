@@ -1,0 +1,200 @@
+@use "variables" as *;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $primaryColor;
+    padding-inline: 31px;
+    padding-block: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+    color: #ffffff;
+    @media (min-width: 992px) {
+        padding-block-start: clamp(20px, 3.47vw, 60px);
+    }
+
+    // .header__logo
+
+    &__logo {
+        flex-shrink: 0;
+        position: relative;
+        padding-inline-start: 9px;
+        display: flex;
+        align-items: center;
+        height: 48px;
+
+        span {
+            font-family: "Inter", sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        &::before {
+            font-size: 48px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    &__menu {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        transition: transform 0.4s ease-out;
+
+        @media (max-width: 991.92px) {
+            padding-block-start: 110px;
+            padding-block-end: 30px;
+            padding-inline: 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            flex-direction: column-reverse;
+            align-items: stretch;
+            row-gap: 30px;
+            background-color: $primaryColor;
+            height: 100vh;
+            width: 100%;
+            transform: translateX(-100%);
+        }
+        ._menu-open & {
+            transform: translateX(0);
+        }
+    }
+    & .button {
+        flex-shrink: 0;
+        min-width: 176px;
+        font-size: 20px;
+        color: #3b3b3b;
+        position: sticky;
+        top: 0;
+    }
+}
+
+.navigation {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 991.98px) {
+        height: calc(100vh - 202px);
+        overflow-y: auto;
+        padding-block-start: 30px;
+    }
+    @media (min-width: 992px) {
+        align-items: center;
+    }
+
+    // .navigation__list
+
+    &__list {
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        font-size: 36px;
+        font-weight: 600;
+        padding-inline-start: 10px;
+        @media (min-width: 992px) {
+            font-size: 22px;
+            flex-direction: row;
+            row-gap: 20px;
+            flex-wrap: wrap;
+        }
+    }
+
+    // .navigation__item
+
+    &__item {
+    }
+
+    // .navigation__link
+
+    &__link {
+        padding-inline-start: 5px;
+        padding-block-end: 3px;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            border-bottom-left-radius: 10px;
+            border-left: #ffffff 3px solid;
+            border-bottom: #ffffff 3px solid;
+            background-clip: content-box;
+            transition:
+                width 0.3s ease-out,
+                height 0.3s ease-out,
+                opacity 0.3s ease-out;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                &::before {
+                    width: 100%;
+                    height: 85%;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+.burger-button {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+
+    &::before,
+    &::after {
+        content: "";
+        width: 100%;
+        transition: transform 0.4s ease-out;
+    }
+
+    &::before,
+    &::after,
+    span {
+        height: 4px;
+        background-color: #ffffff;
+        border-radius: 4px;
+    }
+    span {
+        width: 100%;
+        transition:
+            width 0.3s ease-out 0.3s,
+            opacity 0.3s ease-out 0.3s;
+    }
+
+    ._menu-open & {
+        &::before {
+            transform: translateY(260%) rotate(45deg);
+        }
+        &::after {
+            transform: translateY(-260%) rotate(-45deg);
+        }
+        span {
+            width: 0;
+            opacity: 0;
+            position: absolute;
+            transition:
+                width 0s ease-out,
+                opacity 0s ease-out;
+        }
+    }
+    @media (max-width: 991.92px) {
+        display: flex;
+    }
+}

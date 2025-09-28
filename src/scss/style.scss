@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "fonts";
+@use "reset";
+@use "variables" as *;
+@use "common";
+@use "header";
+@use "main";
+@use "footer";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+}
+.wrapper {
+    min-height: 100%;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper > main {
+    flex-grow: 1;
+}
+[class*="__container"] {
+    max-width: 1568px; //1548px
+    padding-inline: 10px;
+    margin: 0 auto;
+}
+
+[class*="__container-small"] {
+    max-width: 1502px; //1482px
+}

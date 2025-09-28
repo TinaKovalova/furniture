@@ -1,0 +1,40 @@
+@use "variables" as *;
+.button {
+    border-radius: 4px;
+    padding-block: 18px;
+    padding-inline: 20px;
+    border: 1px solid transparent;
+    background-color: #ffffff;
+    color: #2f2f2f;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    transition:
+        color 0.4s ease-out,
+        background-color 0.4s ease-out,
+        border-color 0.4s ease-out;
+    @media (any-hover: hover) {
+        &:hover {
+            border-color: #ffffff;
+            &.button--border {
+                background-color: #a2442a;
+                color: #ffffff;
+            }
+            &.button--dark {
+                border-color: $primaryColor;
+                color: $primaryColor;
+                background-color: #ffffff;
+            }
+        }
+    }
+}
+.button--border {
+    border-color: $primaryColor;
+    color: $primaryColor;
+    font-weight: 500;
+}
+
+.button--dark {
+    background-color: #a2442a;
+    color: #ffffff;
+}

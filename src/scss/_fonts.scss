@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Instrument+Sans:regular,700&display=swap");
+
+$icomoon-font-family: "icomoon" !default;
+$icomoon-font-path: "fonts" !default;
+
+$_icon-cart: unquote('"\\e900"');
+$_icon-cart-add: unquote('"\\e901"');
+$_icon-check: unquote('"\\e902"');
+$_icon-explore: unquote('"\\e903"');
+$_icon-logo: unquote('"\\e904"');
+$_icon-phone: unquote('"\\e905"');
+$_icon-arrow: unquote('"\\ea3c"');
+
+@font-face {
+    font-family: "#{$icomoon-font-family}";
+    src: url("/src/fonts/icomoon.woff2") format("woff2");
+    src:
+        url("/src/fonts/icomoon.ttf") format("truetype"),
+        url("/src/fonts/icomoon.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "#{$icomoon-font-family}" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-cart {
+    &:before {
+        content: $_icon-cart;
+    }
+}
+._icon-cart-add {
+    &:before {
+        content: $_icon-cart-add;
+    }
+}
+._icon-check {
+    &:before {
+        content: $_icon-check;
+    }
+}
+._icon-explore {
+    &:before {
+        content: $_icon-explore;
+    }
+}
+._icon-logo {
+    &:before {
+        content: $_icon-logo;
+    }
+}
+._icon-phone {
+    &:before {
+        content: $_icon-phone;
+    }
+}
+._icon-arrow {
+    &:before {
+        content: $_icon-arrow;
+    }
+}
