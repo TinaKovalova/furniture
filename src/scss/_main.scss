@@ -140,3 +140,182 @@
         }
     }
 }
+.products {
+    // .products__container
+
+    &__container {
+        padding-block: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+
+        @media (min-width: 992px) {
+            padding-block-start: 200px;
+            padding-block-end: 193px;
+            row-gap: 109px;
+        }
+    }
+
+    // .products__title
+
+    &__title {
+        color: $primaryColorLight;
+        font-size: 48px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        &::before {
+            content: "";
+            width: 83px;
+            height: 2.5px;
+            background-color: #1f1f1f;
+        }
+    }
+
+    // .products__collection
+
+    &__collection {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: clamp(20px, 3.94vw, 68px);
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(auto-fill, minmax(322px, 1fr));
+        }
+    }
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+
+    // .product-card__image-link
+
+    &__image-link {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 322 / 395;
+        border-radius: 173px;
+        display: flex;
+        justify-content: center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset-inline: 0;
+            inset-block: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            background: rgba(217, 217, 217, 0.5);
+            box-shadow: 0 -125.982px 242.272px -9.691px rgba(0, 0, 0, 0.37) inset;
+        }
+        &::after {
+            content: "";
+            width: 77%;
+            height: 45px;
+            filter: blur(16.612947463989258px);
+            background: url("/src/images/products/ellipse.svg") center/cover no-repeat;
+            position: absolute;
+            z-index: 1;
+            inset-inline: 50%;
+            inset-block-end: 30px;
+            transform: translateX(-50%);
+        }
+        @media (any-hover: hover) {
+            &:hover .product-card__image {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    // .product-card__image
+
+    &__image {
+        max-width: 77%; /* 248/322 */
+        aspect-ratio: 248 / 276;
+        object-fit: contain;
+        position: relative;
+        z-index: 2;
+        align-self: flex-end;
+        margin-block-end: 10px;
+        transition: transform 0.3s ease-out;
+    }
+
+    // .product-card__info
+
+    &__info {
+        flex-grow: 1;
+        width: 93.17%; /* 300/322 */
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        background: #fff;
+        padding-inline: 20px;
+        padding-block-start: 7px;
+        padding-block-end: 8px;
+        display: flex;
+    }
+
+    // .product-card__content
+
+    &__content {
+        flex-grow: 1;
+        font-family: "Instrument Sans", sans-serif;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+    // .product-card__title
+
+    &__title {
+        flex-grow: 1;
+        font-size: 23px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    // .product-card__title-link
+
+    &__title-link {
+        transition: color 0.3s ease-out;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    // .product-card__material
+
+    &__material {
+        color: $primaryColor;
+    }
+
+    // .product-card__button
+
+    &__button {
+        flex-shrink: 0;
+        align-self: flex-end;
+        margin-block: 10px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: $primaryColorLight;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        transition: background-color 0.3s ease-out;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #6d2612;
+            }
+        }
+    }
+}
