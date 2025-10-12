@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 .hero {
     position: relative;
@@ -7,16 +8,10 @@
     // .hero__container
 
     &__container {
-        // padding-block: 50px;
         display: flex;
         justify-content: space-between;
         @media (min-width: 768px) {
             min-height: 770px;
-        }
-
-        @media (min-width: 992px) {
-            // padding-block-start: 140px;
-            // padding-block-end: 85px;
         }
     }
 
@@ -144,15 +139,11 @@
     // .products__container
 
     &__container {
-        padding-block: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: 40px;
-
         @media (min-width: 992px) {
-            padding-block-start: 200px;
-            padding-block-end: 193px;
             row-gap: 109px;
         }
     }
@@ -161,7 +152,7 @@
 
     &__title {
         color: $primaryColorLight;
-        font-size: 48px;
+        font-size: clamp(30px, 2.77vw, 48px);
         font-weight: 600;
         display: flex;
         align-items: center;
@@ -170,7 +161,7 @@
             content: "";
             width: 83px;
             height: 2.5px;
-            background-color: #1f1f1f;
+            background-color: $textDarkGreyColor;
         }
     }
 
@@ -317,5 +308,204 @@
                 background-color: #6d2612;
             }
         }
+    }
+}
+.design-solutions {
+    // .design-solutions__container-small
+
+    &__container-small {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(20px, 5.6vw, 98px);
+
+        @media (max-width: 991.98px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    // .design-solutions__image
+
+    &__image {
+        flex: 1 1 686px;
+        min-width: 40%;
+        aspect-ratio: 1;
+        @media (max-width: 991.98px) {
+            max-width: 450px;
+        }
+    }
+
+    // .design-solutions__content
+
+    &__content {
+        flex: 1 1 680px;
+        min-width: 40%;
+        padding-inline-end: 17px;
+    }
+
+    // .design-solutions__title
+
+    &__title {
+        font-size: clamp(30px, 3.18vw, 55px);
+        font-weight: 600;
+        color: $textDarkGreyColor;
+        &:not(:last-child) {
+            margin-bottom: clamp(27px, 2.72vw, 47px);
+        }
+    }
+
+    // .design-solutions__text
+
+    &__text {
+        font-size: clamp(16px, 1.33vw, 23px);
+        line-height: 1.65;
+        font-weight: 500;
+        color: #545454;
+        &:not(:last-child) {
+            margin-bottom: 50px;
+        }
+        @media (min-width: 992px) {
+            &:not(:last-child) {
+                margin-bottom: 84px;
+            }
+        }
+    }
+
+    // .design-solutions__accordion
+
+    &__accordion {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+        @media (min-width: 992px) {
+            &:not(:last-child) {
+                margin-bottom: 53px;
+            }
+        }
+    }
+
+    // .design-solutions__details
+
+    &__details {
+        padding-block-end: 23px;
+        border-bottom: 1px solid #dadada;
+        overflow: hidden;
+        &:not(:first-child) {
+            padding-block-start: 51px;
+            padding-block-start: clamp(23px, 2.95vw, 51px);
+        }
+        @supports (interpolate-size: allow-keywords) {
+            &::details-content {
+                line-height: 1.65;
+                color: #545454;
+                block-size: 0;
+                transition:
+                    content-visibility 0.4s,
+                    block-size 0.4s;
+                transition-behavior: allow-discrete;
+            }
+            &[open]::details-content {
+                block-size: auto;
+            }
+        }
+    }
+    // design-solutions__details-header
+    &__details-header {
+        font-size: clamp(16px, 1.33vw, 23px);
+        font-weight: 600;
+        line-height: 1.65;
+        color: $textDarkGreyColor;
+        position: relative;
+        padding-inline-end: 50px;
+        cursor: pointer;
+        @include details-summary-murker(23px, $textDarkGreyColor);
+    }
+    //   design-solutions__details-text
+    &__details-text {
+        padding-inline: 10px;
+        padding-block: 10px;
+        font-size: clamp(14px, 1.33vw, 23px);
+    }
+
+    // .design-solutions__button
+
+    &__button {
+        min-width: 265px;
+
+        @media (min-width: 992px) {
+            font-size: 23px;
+            padding-block: 24px;
+        }
+    }
+}
+.faq {
+    background-color: $primaryColor;
+    color: #ffffff;
+    // .faq__container
+
+    &__container {
+        padding-block: 50px;
+        @media (min-width: 992px) {
+            padding-block: 100px;
+        }
+    }
+
+    // .faq__title
+
+    &__title {
+        color: #f4efef;
+        font-size: clamp(30px, 3.76vw, 65px);
+        max-width: 912px;
+        margin: 0 auto;
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: clamp(40px, 4.68vw, 81px);
+        }
+    }
+
+    // .faq__details-block
+
+    &__details-block {
+        max-width: 995px;
+        margin: 0 auto;
+    }
+
+    // .faq__details
+
+    &__details {
+        padding-block-end: 32px;
+        padding-inline-end: 17px;
+        border-bottom: 1px solid #ffffff;
+        overflow: hidden;
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+        @supports (interpolate-size: allow-keywords) {
+            &::details-content {
+                block-size: 0;
+                transition:
+                    content-visibility 0.4s,
+                    block-size 0.4s;
+                transition-behavior: allow-discrete;
+            }
+            &[open]::details-content {
+                block-size: auto;
+            }
+        }
+    }
+
+    // .faq__details-summary
+
+    &__details-summary {
+        @include details-summary-murker(23px, #ffffff);
+        font-size: clamp(18px, 1.85vw, 32px);
+        font-weight: 600;
+    }
+
+    // .faq__details-text
+
+    &__details-text {
+        padding-block-start: 40px;
+        font-size: clamp(14px, 1.5vw, 26px);
     }
 }

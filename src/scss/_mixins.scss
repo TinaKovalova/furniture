@@ -1,2 +1,37 @@
 @use "sass:math";
 @use "variables" as *;
+
+@mixin details-summary-murker($murker-width, $color) {
+    list-style: none;
+    position: relative;
+    &::after,
+    &::before {
+        content: "";
+        width: clamp(16px, calc($murker-width / #{$maxWidth}px * 100vw), $murker-width);
+        height: 3px;
+        border-radius: 4px;
+        background-color: $color;
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-end: 0;
+        transition:
+            transform 0.3s ease-in,
+            opacity 0.2s ease-in,
+            visibility 0.2s ease-in;
+    }
+    &::before {
+        transform: rotate(0);
+    }
+    &::after {
+        transform: rotate(-90deg);
+    }
+
+    details[open] &::after {
+        transform: rotate(-180deg);
+    }
+    details[open] &::before {
+        visibility: hidden;
+        opacity: 0;
+        transform: rotate(-90deg);
+    }
+}

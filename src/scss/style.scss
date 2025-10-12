@@ -9,6 +9,7 @@
 
 html {
     scroll-behavior: smooth;
+    interpolate-size: allow-keywords;
 }
 
 body {
@@ -24,6 +25,12 @@ body {
 }
 .wrapper > main {
     flex-grow: 1;
+    & > *:not(:last-child) {
+        margin-bottom: 50px;
+        @media (min-width: 992px) {
+            margin-bottom: 192px;
+        }
+    }
 }
 [class*="__container"] {
     max-width: 1578px; //1548px
