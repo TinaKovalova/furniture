@@ -2,7 +2,6 @@
 @use "mixins" as *;
 
 .hero {
-    position: relative;
     background-color: $primaryColor;
 
     // .hero__container
@@ -10,6 +9,7 @@
     &__container {
         display: flex;
         justify-content: space-between;
+        position: relative;
         @media (min-width: 768px) {
             min-height: 770px;
         }
@@ -26,7 +26,7 @@
         align-items: flex-start;
         row-gap: 59px;
         position: relative;
-        z-index: 1;
+        z-index: 2;
         padding-block-end: 50px;
         padding-block-start: 65px;
     }
@@ -52,7 +52,7 @@
     // .hero__image-block
 
     &__image-block {
-        width: 61.757106%; /* 956/1548 */
+        width: 57.622739%; /* 892/1548 */
         min-height: 100%;
         position: absolute;
         top: 0;
@@ -62,10 +62,11 @@
         &::after {
             content: "";
             position: absolute;
-            bottom: 25px;
-            right: 0;
+            inset-block-end: 25px;
+            inset-inline-start: 50%;
+            transform: translateX(-50%);
             z-index: 0;
-            width: 956px;
+            width: 107%;
             height: 50%;
             border-start-start-radius: 50% 100%;
             border-start-end-radius: 50% 100%;
