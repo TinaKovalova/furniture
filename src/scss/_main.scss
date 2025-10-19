@@ -301,6 +301,7 @@
     }
 }
 .design-solutions {
+    @extend %scroll-margin;
     // .design-solutions__container-small
 
     &__container-small {
@@ -406,7 +407,6 @@
         line-height: 1.65;
         color: $textDarkGreyColor;
         position: relative;
-        padding-inline-end: 50px;
         cursor: pointer;
         @include details-summary-murker(23px, $textDarkGreyColor);
     }
@@ -420,8 +420,8 @@
     // .design-solutions__button
 
     &__button {
-        min-width: 265px;
-
+        width: 26vw; /* 265/992 */
+        min-width: max-content;
         @media (min-width: 992px) {
             font-size: 23px;
             padding-block: 24px;

@@ -4,6 +4,7 @@
 @mixin details-summary-murker($murker-width, $color) {
     list-style: none;
     position: relative;
+    padding-inline-end: calc($murker-width + 10px);
     &::after,
     &::before {
         content: "";
@@ -34,4 +35,8 @@
         opacity: 0;
         transform: rotate(-90deg);
     }
+}
+
+%scroll-margin {
+    scroll-margin-block-start: 100px;
 }

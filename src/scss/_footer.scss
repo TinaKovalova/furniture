@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "mixins" as *;
 .footer {
     // .footer__container
 
@@ -7,6 +8,7 @@
         align-items: center;
         gap: 50px 30px;
         padding-block: 50px;
+        scroll-margin-block-start: 50px;
         @media (max-width: 991.92px) {
             flex-wrap: wrap;
             justify-content: center;
@@ -15,6 +17,7 @@
             justify-content: space-between;
             padding-block-start: clamp(60px, 11.16vw, 193px);
             padding-block-end: clamp(60px, 9.2vw, 159px);
+            scroll-margin-block-start: clamp(60px, 11.16vw, 193px);
         }
     }
 
@@ -39,6 +42,9 @@
         }
         @media (max-width: 991.92px) {
         }
+    }
+    &__address {
+        @extend %scroll-margin;
     }
     // .footer__contacts-list
 
@@ -87,6 +93,7 @@
         }
     }
     &__contact-form {
+        @extend %scroll-margin;
         flex-basis: 542px;
         @media (max-width: 991.92px) {
             align-self: center;

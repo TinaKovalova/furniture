@@ -11,9 +11,13 @@
     justify-content: space-between;
     column-gap: 15px;
     color: #ffffff;
+    transition: transform 0.5s ease-in-out;
     @media (min-width: 992px) {
         padding-inline: 31px;
         padding-block: 15px;
+    }
+    &.hide {
+        transform: translateY(-100%);
     }
 
     // .header__logo
@@ -50,8 +54,8 @@
             padding-block-end: 30px;
             padding-inline: 30px;
             position: fixed;
-            top: 0;
-            left: 0;
+            inset-block-start: 0;
+            inset-inline-end: 100%;
             z-index: -1;
             flex-direction: column-reverse;
             align-items: stretch;
@@ -59,10 +63,9 @@
             background-color: $primaryColor;
             height: 100vh;
             width: 100%;
-            transform: translateX(-100%);
         }
         ._menu-open & {
-            transform: translateX(0);
+            transform: translateX(100%);
         }
     }
     & .button {
