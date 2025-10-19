@@ -4,6 +4,7 @@
 .hero {
     background-color: $primaryColor;
     overflow: hidden;
+    min-height: 100vh;
     padding-block-start: 76px;
     @media (min-width: 992px) {
         padding-block-start: 92px;
