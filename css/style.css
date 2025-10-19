@@ -964,6 +964,14 @@ details[open] .design-solutions__details-header::before {
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
+@media (any-hover: hover) {
+  .design-solutions__details-header:hover {
+    color: #953b22;
+  }
+  .design-solutions__details-header:hover::after, .design-solutions__details-header:hover::before {
+    background-color: #953b22;
+  }
+}
 .design-solutions__details-text {
   padding-inline: 10px;
   padding-block: 10px;
@@ -1037,6 +1045,9 @@ details[open] .design-solutions__details-header::before {
           padding-inline-end: 33px;
   font-size: clamp(18px, 1.85vw, 32px);
   font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
 }
 .faq__details-summary::after, .faq__details-summary::before {
   content: "";
@@ -1073,6 +1084,14 @@ details[open] .faq__details-summary::before {
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+@media (any-hover: hover) {
+  .faq__details-summary:hover {
+    color: #1f1f1f;
+  }
+  .faq__details-summary:hover::after, .faq__details-summary:hover::before {
+    background-color: #1f1f1f;
+  }
 }
 .faq__details-text {
   -webkit-padding-before: 40px;
@@ -1472,7 +1491,7 @@ details[open] .faq__details-summary::before {
   -webkit-transition-delay: 0.3s, 0s;
           transition-delay: 0.3s, 0s;
 }
-.contact-form__input:user-invalid {
+.contact-form__input:user-valid {
   border-color: #106910;
 }
 .contact-form__input:user-invalid {

@@ -411,6 +411,15 @@
         position: relative;
         cursor: pointer;
         @include details-summary-murker(23px, $textDarkGreyColor);
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primaryColor;
+                &::after,
+                &::before {
+                    background-color: $primaryColor;
+                }
+            }
+        }
     }
     //   design-solutions__details-text
     &__details-text {
@@ -492,6 +501,17 @@
         @include details-summary-murker(23px, #ffffff);
         font-size: clamp(18px, 1.85vw, 32px);
         font-weight: 600;
+        cursor: pointer;
+        transition: color 0.3s ease-out;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $textDarkGreyColor;
+                &::after,
+                &::before {
+                    background-color: $textDarkGreyColor;
+                }
+            }
+        }
     }
 
     // .faq__details-text

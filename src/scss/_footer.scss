@@ -152,7 +152,7 @@
             transition-timing-function: ease-out;
             transition-delay: 0.3s, 0s;
         }
-        &:user-invalid {
+        &:user-valid {
             border-color: #106910;
         }
         &:user-invalid {

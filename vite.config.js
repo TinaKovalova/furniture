@@ -3,7 +3,7 @@ import injectHTML from "vite-plugin-html-inject";
 import VitePluginWebpAndPath from "vite-plugin-webp-and-path";
 
 export default defineConfig({
-  // base:"/furniture/",
+  base:"/furniture/",
   plugins: [
     injectHTML(), VitePluginWebpAndPath()],
  });
