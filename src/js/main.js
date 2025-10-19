@@ -9,6 +9,9 @@ window.addEventListener("load", () => {
   const burgerButton = document.querySelector(".burger-button");
   const header = document.querySelector(".header");
   const headerMenu = document.querySelector(".header__menu");
+  const showMoreProductsButton = document.querySelector(".products .button");
+  const productsContainer = document.querySelector(".products__collection");
+  const productCards = document.querySelectorAll(".product-card");
   
   burgerButton?.addEventListener("click", (e) => {
     header?.classList.toggle("_menu-open")
@@ -31,6 +34,17 @@ window.addEventListener("load", () => {
   lastScroll = scrollPosition;
 });
 
+  
+  const productCardsSortedByHeightDesc = [...productCards].sort((a, b) => b.clientHeight -a.clientHeight);
+  const maxCardHeight = productCardsSortedByHeightDesc[0].clientHeight+10;
+  productsContainer.style.maxHeight = `${maxCardHeight/16}rem`;
+
+  showMoreProductsButton?.addEventListener("click", () => {
+
+    const containerScrollHeight = productsContainer?.scrollHeight;
+        console.log("clock", containerScrollHeight,`${containerScrollHeight/16}rem`);
+    productsContainer.style.maxHeight = `${containerScrollHeight/16}rem`;
+  });
 
   const swiper = new Swiper(".reviews__slider.swiper", {
     loop: true,

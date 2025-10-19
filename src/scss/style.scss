@@ -10,13 +10,15 @@
 html {
     scroll-behavior: smooth;
     interpolate-size: allow-keywords;
-   
 }
 
 body {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     line-height: 1.2;
+    &:has(.header._menu-open) {
+        overflow: clip;
+    }
 }
 .wrapper {
     min-height: 100%;

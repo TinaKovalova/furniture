@@ -652,10 +652,13 @@ input[type=number] {
   }
 }
 .products__collection {
+  overflow: hidden;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: clamp(20px, 3.94vw, 68px);
+  -webkit-transition: max-height 0.4s ease-out;
+  transition: max-height 0.4s ease-out;
 }
 @media (min-width: 992px) {
   .products__collection {
@@ -1493,6 +1496,9 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1.2;
+}
+body:has(.header._menu-open) {
+  overflow: clip;
 }
 
 .wrapper {
