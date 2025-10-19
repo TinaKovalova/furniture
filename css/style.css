@@ -209,7 +209,7 @@ input[type=number] {
   z-index: 100;
   background-color: #953b22;
   padding-inline: 15px;
-  padding-block: 20px;
+  padding-block: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,9 +226,8 @@ input[type=number] {
 }
 @media (min-width: 992px) {
   .header {
-    -webkit-padding-before: clamp(20px, 3.47vw, 60px);
-            padding-block-start: clamp(20px, 3.47vw, 60px);
     padding-inline: 31px;
+    padding-block: 15px;
   }
 }
 .header__logo {
@@ -461,20 +460,23 @@ input[type=number] {
 
 .hero {
   background-color: #953b22;
+  overflow: hidden;
 }
 .hero__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
-}
-@media (min-width: 768px) {
-  .hero__container {
-    min-height: 770px;
-  }
+  -webkit-padding-after: 50px;
+          padding-block-end: 50px;
+  -webkit-padding-before: 65px;
+          padding-block-start: 65px;
 }
 .hero__content {
   -ms-flex-negative: 1;
@@ -495,10 +497,6 @@ input[type=number] {
   row-gap: 59px;
   position: relative;
   z-index: 2;
-  -webkit-padding-after: 50px;
-          padding-block-end: 50px;
-  -webkit-padding-before: 65px;
-          padding-block-start: 65px;
 }
 .hero__title {
   font-size: clamp(36px, 5.79vw, 100px);
@@ -513,30 +511,36 @@ input[type=number] {
   min-width: fit-content;
 }
 .hero__image-block {
-  width: 57.622739%; /* 892/1548 */
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  right: -32px;
-  z-index: 0;
-  opacity: 0.3;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 38.76%; /* 700/1548 */
+  height: 600px;
+  position: relative;
+  opacity: 0;
+  display: none;
 }
 .hero__image-block::after {
   content: "";
   position: absolute;
-  inset-block-end: 25px;
-  inset-inline-start: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  inset-block-start: 50%;
+  inset-inline-end: 0;
+  -webkit-transform: translateX(12%);
+      -ms-transform: translateX(12%);
+          transform: translateX(12%);
   z-index: 0;
-  width: 107%;
-  height: 50%;
-  border-start-start-radius: 50% 100%;
-  border-start-end-radius: 50% 100%;
+  width: 956px;
+  height: 100%;
+  border-radius: 50%;
   background-color: rgba(240, 123, 91, 0.2);
   -webkit-filter: blur(34px);
           filter: blur(34px);
+}
+@media (min-width: 768px) {
+  .hero__image-block {
+    display: block;
+    opacity: 0.3;
+  }
 }
 @media (min-width: 992px) {
   .hero__image-block {
@@ -544,26 +548,12 @@ input[type=number] {
   }
 }
 .hero__image-item {
-  position: absolute;
-  display: none;
-}
-.hero__image-item.hero__image-item--1 {
-  width: 478px;
-  right: min(16.9vw, 292px);
-  bottom: min(5.09vw, 88px);
-  z-index: 2;
-}
-.hero__image-item.hero__image-item--2 {
-  width: 443px;
-  right: min(2.02vw, 35px);
-  top: 0;
   height: 100%;
+  aspect-ratio: 1;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
   z-index: 1;
-}
-@media (min-width: 768px) {
-  .hero__image-item {
-    display: block;
-  }
 }
 .hero__image {
   height: 100%;
@@ -640,9 +630,16 @@ input[type=number] {
 }
 .products__title::before {
   content: "";
-  width: 83px;
+  width: 1.73em;
   height: 2.5px;
   background-color: #1f1f1f;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+@media (max-width: 767.98px) {
+  .products__title::before {
+    display: none;
+  }
 }
 .products__collection {
   width: 100%;
@@ -1076,28 +1073,24 @@ details[open] .faq__details-summary::before {
             padding-block-end: 192px;
   }
 }
-.reviews__background {
+.reviews__container::before {
+  content: "";
   display: none;
   position: absolute;
   inset-inline-start: 15px;
   inset-block-start: 0;
   z-index: -1;
-  max-width: 45.93%; /* 711/1548 */
+  width: 45.93%; /* 711/1548 */
   min-width: 300px;
   aspect-ratio: 1;
+  background: url("/src/images/reviews/reviews_background.jpg") center/cover no-repeat;
 }
 @media (min-width: 992px) {
-  .reviews__background {
+  .reviews__container::before {
     display: block;
   }
 }
-.reviews__background-img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1;
-}
 .reviews__title {
-  text-align: center;
   font-size: clamp(30px, 3.36vw, 58px);
   font-weight: 600;
   color: #1f1f1f;
@@ -1109,7 +1102,6 @@ details[open] .faq__details-summary::before {
 @media (min-width: 992px) {
   .reviews__title {
     max-width: 45.48%; /* 704/1548 */
-    text-align: start;
   }
 }
 .reviews__slider-wrapper {
