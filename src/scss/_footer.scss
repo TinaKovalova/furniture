@@ -79,6 +79,9 @@
         display: flex;
         align-items: center;
         column-gap: 17px;
+        transition:
+            color 0.4s ease-out,
+            border-color 0.4s ease-out;
         &::before {
             font-size: inherit;
         }
@@ -89,6 +92,12 @@
             padding-inline: 22px;
             & span {
                 display: inline;
+            }
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $textDarkGreyColor;
+                border-color: $textDarkGreyColor;
             }
         }
     }

@@ -1408,6 +1408,8 @@ details[open] .faq__details-summary::before {
   -webkit-column-gap: 17px;
      -moz-column-gap: 17px;
           column-gap: 17px;
+  -webkit-transition: color 0.4s ease-out, border-color 0.4s ease-out;
+  transition: color 0.4s ease-out, border-color 0.4s ease-out;
 }
 .footer__address-link::before {
   font-size: inherit;
@@ -1421,6 +1423,12 @@ details[open] .faq__details-summary::before {
   }
   .footer__address-link span {
     display: inline;
+  }
+}
+@media (any-hover: hover) {
+  .footer__address-link:hover {
+    color: #1f1f1f;
+    border-color: #1f1f1f;
   }
 }
 .footer__contact-form {
