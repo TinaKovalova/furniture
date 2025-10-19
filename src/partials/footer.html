@@ -1,5 +1,46 @@
 <footer class="footer">
-    <div class="footer__container">
+    <div class="footer__container-small">
+        <div class="footer__content">
+            <h2 class="footer__title">
+                Have any query? <br> Feel free to contact us!
+            </h2>
+            <address class="footer__address">
+                <ul class="footer__contacts-list">
+                    <li class="footer__contacts-item">
+                        <a href="tel:+11234567890" class="footer__address-link _icon-phone" aria-label="Call by phone">
+                            <span>+11 234567890</span>
+                        </a>
+                    </li>
+                    <li class="footer__contacts-item">
+                        <a href="https://share.google/baZbGupvSGdibUSm4" class="footer__address-link _icon-explore"
+                            aria-label="Go to map">
+                            <span>25th South Avenue, Ford Street, Brooklyn, NY</span>
+                        </a>
+                    </li>
+                </ul>
+            </address>
+        </div>
+        <form action="#" method="post" name="contact-form" class="footer__contact-form contact-form">
+            <div class="contact-form__row">
+                <label for="name" class="contact-form__label">Full Name</label>
+                <input type="text" class="contact-form__input" id="name" name="name" autocomplete="name"
+                    placeholder="Ex. John Smith" required>
+                <span>Enter your full name (Ex. John Smith)</span>
+            </div>
+            <div class="contact-form__row">
+                <label for="emain" class="contact-form__label">E-mail</label>
+                <input type="email" class="contact-form__input" id="email" name="email" autocomplete="email"
+                    placeholder="Ex. name@domain.com" required>
+                <span>Enter email (Ex. info@dov.net)</span>
+            </div>
+            <div class="contact-form__row">
+                <label for="message" class="contact-form__label">Your Message</label>
+                <textarea type="text" class="contact-form__input" id="message" name="message" rows="7"
+                    placeholder="Write your text here..." required></textarea>
+                <span>Write the message</span>
+            </div>
+            <button type="submit" class="contact-form__button button button--dark">Send Message</button>
+        </form>
 
     </div>
 </footer>
