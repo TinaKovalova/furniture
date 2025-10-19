@@ -33,17 +33,26 @@ window.addEventListener("load", () => {
     header.classList.remove("hide");
   }
   lastScroll = scrollPosition;
-});
+  });
 
   
   const productCardsSortedByHeightDesc = [...productCards].sort((a, b) => b.clientHeight -a.clientHeight);
   const maxCardHeight = productCardsSortedByHeightDesc[0].clientHeight+10;
   productsContainer.style.maxHeight = `${maxCardHeight/16}rem`;
 
-  showMoreProductsButton?.addEventListener("click", () => {
-    const containerScrollHeight = productsContainer?.scrollHeight;
-        console.log("clock", containerScrollHeight,`${containerScrollHeight/16}rem`);
-    productsContainer.style.maxHeight = `${containerScrollHeight/16}rem`;
+  showMoreProductsButton?.addEventListener("click", (e) => {
+    const targetButton = e.target;
+    if (!targetButton.classList.contains("_show-more")) {
+      targetButton.classList.add("_show-more");
+      const containerScrollHeight = productsContainer?.scrollHeight;
+      productsContainer.style.maxHeight = `${containerScrollHeight / 16}rem`;
+      targetButton.textContent = "Show less Items";
+    } else {
+      targetButton.classList.remove("_show-more");
+      productsContainer.style.maxHeight = `${maxCardHeight / 16}rem`;
+      targetButton.textContent = "Explore All Items";
+    }
+   
   });
 
   contactForm?.addEventListener("submit", (e) => {

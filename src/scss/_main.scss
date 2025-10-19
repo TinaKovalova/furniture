@@ -4,6 +4,10 @@
 .hero {
     background-color: $primaryColor;
     overflow: hidden;
+    padding-block-start: 76px;
+    @media (min-width: 992px) {
+        padding-block-start: 92px;
+    }
 
     // .hero__container
 
@@ -163,7 +167,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: clamp(20px, 3.94vw, 68px);
-        transition: max-height 0.4s ease-out;
+        transition: max-height 0.5s ease-out;
         @media (min-width: 992px) {
             grid-template-columns: repeat(auto-fill, minmax(322px, 1fr));
         }
